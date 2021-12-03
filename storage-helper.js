@@ -1,0 +1,1 @@
+console.log('storage-helper is running');
