@@ -31,5 +31,12 @@ let storageHelper = (function () {
     return JSON.parse(localStorage.getItem(this._key));
   };
 
+  /**
+   * Remove browser storage item // Remove data from the browsers localStorage
+   */
+  Constructor.prototype.remove = function () {
+    localStorage.removeItem(this._key);
+  }
+
   return Constructor
 })();
