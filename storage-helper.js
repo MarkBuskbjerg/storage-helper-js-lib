@@ -1,5 +1,10 @@
 let storageHelper = (function () {
 
+  // Default settings
+  let defaults = {
+    type = 'localStorage'
+  }
+
   /**
    * The Constructor Object
    * @param {String} key  The storage key
@@ -7,9 +12,15 @@ let storageHelper = (function () {
    */
 
   function Constructor(key, options = {}) {
+
+    // First we'll merge user options into default options
+    let settings = Object.assign({}, defaults, options);
+    Object.freeze(settings);
+
     // This is where we will set our properties for the library ...
     Object.defineProperties(this, {
-      _key: { value: key }
+      _key: { value: key },
+      _settings: { value: settings }
     });
 
   }
@@ -20,7 +31,7 @@ let storageHelper = (function () {
    * @param {*} value The storage value
    */
   Constructor.prototype.set = function (value) {
-    localStorage.setItem(this._key, JSON.stringify(value));
+    window[this._settings.type].setItem(this._key, JSON.stringify(value));
   };
 
   /**
@@ -28,14 +39,14 @@ let storageHelper = (function () {
    * @return {*} The storage value
    */
   Constructor.prototype.get = function () {
-    return JSON.parse(localStorage.getItem(this._key));
+    return JSON.parse(window[this._settings.type].getItem(this._key));
   };
 
   /**
    * Remove browser storage item // Remove data from the browsers localStorage
    */
   Constructor.prototype.remove = function () {
-    localStorage.removeItem(this._key);
+    window[this._settings.type].removeItem(this._key);
   }
 
   return Constructor
