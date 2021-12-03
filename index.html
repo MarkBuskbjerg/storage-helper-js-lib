@@ -5,15 +5,69 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pico.classless.min.css">
+  <link rel="stylesheet" href="prism.css">
   <title>StorageHelper - a JavaScript helper library to get and set data in browsers localStorage</title>
 </head>
 
 <body>
-  <h1>StorageHelper - a JavaScript helper library to get and set data in browsers localStorage</h1>
-  <p>This is the site for a small helper library providing functions and methods to get and set data in
-    window.localStorage in browsers.</p>
-  <p>This library has been built as an exercise for the Pocket Guide: <a
-      href="https://vanillajsguides.com/writing-js-libraries/">"Writing JS libraries"</a> by Chris Ferdinandi.</p>
+  <header>
+    <p>
+      <svg height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+      </svg>
+      StorageHelper
+    </p>
+    <nav>
+      <ul>
+        <li><a href="#getStarted">Get started</a></li>
+        <li><a href="#docs">Docs</a></li>
+        <li><a href="#credits">Credits</a></li>
+      </ul>
+    </nav>
+    <h1>StorageHelper - a JavaScript helper library to get and set data in browsers localStorage</h1>
+  </header>
+  <main>
+    <section>
+      <a name="getStarted"></a>
+      <h2>Get started</h2>
+      <p>This is the site for a small helper library providing functions and methods to get and set data in
+        window.localStorage in browsers.</p>
+
+      <p> ... install instructions goes here ...</p>
+    </section>
+    <section>
+      <a name="docs"></a>
+      <h2>Documentation</h2>
+      <h3>Default settings</h3>
+      <h4>Switch to sessionStorage</h4>
+      <h3>Set, get and remove data</h3>
+      <h4>Set data to storage</h4>
+      <h4>Get data from storage</h4>
+      <h4>Remove data from storage</h4>
+      <pre>
+        <code class="language-js">
+          // First, let's create a new storage item
+          let guitarHero = new storageHelper('guitarHero');
+
+          // Set item to the localStorage
+          guitarHero.set({
+            name: 'Jimi Hendrix',
+            genre: ['hard rock', 'blues rock', 'acid rock', 'funk rock', 'blues']
+          });
+        </code>
+      </pre>
+    </section>
+    <article>
+      <a name="credits"></a>
+      This library has been built as an exercise for the Pocket Guide: <a
+        href="https://vanillajsguides.com/writing-js-libraries/">"Writing JS libraries"</a> by Chris Ferdinandi.
+    </article>
+  </main>
+  <footer>This library is made available by <a href="https://markbuskbjerg.dk">Mark Buskbjerg</a></footer>
+
+  <script src="prism.js"></script>
   <script src="storage-helper.js"></script>
 </body>
 
