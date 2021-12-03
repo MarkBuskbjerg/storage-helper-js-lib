@@ -53,6 +53,10 @@ let storageHelper = (function () {
    */
   Constructor.prototype.set = function (value) {
     window[this._settings.type].setItem(this._key, JSON.stringify(value));
+    emitEvent('storageHelper:set', {
+      key: this._key,
+      value: value
+    });
   };
 
   /**
@@ -60,7 +64,12 @@ let storageHelper = (function () {
    * @return {*} The storage value
    */
   Constructor.prototype.get = function () {
-    return JSON.parse(window[this._settings.type].getItem(this._key));
+    let saved = JSON.parse(window[this._settings.type].getItem(this._key));
+    emitEvent('storageHelper:get', {
+      key: this._key,
+      value: value
+    })
+    return saved;
   };
 
   /**
@@ -68,6 +77,9 @@ let storageHelper = (function () {
    */
   Constructor.prototype.remove = function () {
     window[this._settings.type].removeItem(this._key);
+    emitEvent('bin:remove', {
+      key: this._key
+    });
   }
 
   return Constructor
